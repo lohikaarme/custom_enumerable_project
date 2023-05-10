@@ -1,15 +1,21 @@
 # frozen_string_literal: true
 
-# require 'pry'
-
 module Enumerable
   def my_each_with_index
     i = 0
-    for el in self do # rubocop:disable Style/For
+    my_each do |el|
       yield el, i
       i += 1
     end
     self
+  end
+
+  def my_select
+    arr = []
+    my_each do |el|
+      arr << el if yield(el)
+    end
+    arr
   end
 end
 
