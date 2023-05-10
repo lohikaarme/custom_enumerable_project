@@ -13,9 +13,16 @@ module Enumerable
   def my_select
     arr = []
     my_each do |el|
-      arr << el if yield(el)
+      arr << el if yield el
     end
     arr
+  end
+
+  def my_all?
+    my_each do |el|
+      return false unless yield(el)
+    end
+    true
   end
 end
 

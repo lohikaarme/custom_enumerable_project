@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+my_enumerables# frozen_string_literal: true
 
 require_relative '../lib/my_enumerables'
 
