@@ -31,6 +31,13 @@ module Enumerable
     end
     false
   end
+
+  def my_none?
+    my_each do |el|
+      return false if yield(el)
+    end
+    true
+  end
 end
 
 class Array
