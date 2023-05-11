@@ -48,6 +48,19 @@ module Enumerable
     end
     n
   end
+
+  def my_map
+    arr = []
+    if block_given?
+      my_each do |el|
+        arr << yield(el)
+      end
+    else
+      return self
+    end
+    arr
+
+  end
 end
 
 class Array
