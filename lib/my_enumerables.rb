@@ -51,15 +51,11 @@ module Enumerable
 
   def my_map
     arr = []
-    if block_given?
+    return self unless block_given?
       my_each do |el|
         arr << yield(el)
       end
-    else
-      return self
-    end
     arr
-
   end
 end
 
