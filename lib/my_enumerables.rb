@@ -38,6 +38,16 @@ module Enumerable
     end
     true
   end
+
+  def my_count
+    n = 0
+    if block_given?
+      my_each { |el| n += 1 if yield(el) }
+    else
+      my_each { n += 1 }
+    end
+    n
+  end
 end
 
 class Array
