@@ -52,10 +52,19 @@ module Enumerable
   def my_map
     arr = []
     return self unless block_given?
-      my_each do |el|
-        arr << yield(el)
-      end
+
+    my_each do |el|
+      arr << yield(agg, el)
+    end
     arr
+  end
+
+  def my_inject(value = 0)
+    agg = value
+    my_each do |el|
+      agg = yield(agg, el)
+    end
+    agg
   end
 end
 
